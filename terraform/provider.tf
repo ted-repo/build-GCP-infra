@@ -4,3 +4,7 @@ provider "google" {
   region  = "europe-north1"
   zone    = "europe-north1-a"
 }
+
+provider "random" {
+  # Configuration options
+}
