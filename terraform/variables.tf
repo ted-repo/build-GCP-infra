@@ -1,14 +1,14 @@
 
-# variable "network" {
-#   type = map(object({
-#     network_name = string
-#     subnets = map(object({
-#       name          = string
-#       ip_cidr_range = string
-#       region        = optional(string)
-#     }))
-#   }))
-# }
+variable "network" {
+  type = map(object({
+    network_name = string
+    subnets = map(object({
+      name          = string
+      ip_cidr_range = string
+      region        = optional(string)
+    }))
+  }))
+}
 
 variable "bastion" {
   type = object({
@@ -24,5 +24,21 @@ variable "bastion" {
       network    = string
       subnetwork = optional(string)
     }))
+  })
+}
+
+variable "mig" {
+  type = object({
+    firewall_name = string
+    machine_type  = string
+    region        = optional(string)
+    name          = string
+    zone          = string
+  })
+}
+
+variable "load-balancer-global" {
+  type = object({
+    ip_name = string
   })
 }
